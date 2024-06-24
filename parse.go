@@ -12,7 +12,7 @@ type Info struct {
 	Code     string `json:"code"`
 	English  string `json:"english"`
 	Name     string `json:"name"`
-	FullName string `json:"fullname"`
+	Fullname string `json:"fullname"`
 }
 
 var cache = map[string][]byte{}
@@ -102,7 +102,7 @@ func parseCityCSV(fn, typ string) (ret []*Info, err error) {
 		ret[idx] = &Info{
 			Code:     record[0],
 			English:  record[1],
-			FullName: record[2],
+			Fullname: record[2],
 			Name:     record[3],
 		}
 	}
@@ -126,7 +126,7 @@ func parseDistrictCSV(fn, typ string) (ret []*Info, err error) {
 		ret[idx] = &Info{
 			Code:     record[0],
 			English:  record[1],
-			FullName: record[2],
+			Fullname: record[2],
 			Name:     record[3],
 		}
 	}
@@ -151,7 +151,7 @@ func parseVillageCSV(fn, typ string) (ret []*Info, err error) {
 		ret[idx] = &Info{
 			Code:    record[0],
 			English: record[1],
-			FullName: record[2] +
+			Fullname: record[2] +
 				record[3] +
 				record[4],
 			Name: record[4],

@@ -12,6 +12,10 @@
 - district-xxx: 相當於原檔案中的鄉鎮分頁
 - village-xxx: 相當於原檔案中的村里分頁
 
+### Sqlite DB
+
+依格式分成 `geocode100`, `geocode103`, `geocode106`, `geocode107`, `geocode112` 五個 table，方便直接使用，或是使用簡單的工具轉存進其他 DB
+
 # 檔案是如何產生的
 
 ## 使用 docker (推薦)

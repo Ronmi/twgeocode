@@ -14,6 +14,12 @@ var debug bool
 
 func main() {
 	debug = (os.Getenv("DEBUG") == "1")
+	db := &dbWriter{}
+	err := db.init()
+	if err != nil {
+		log.Fatal("cannot init db:", err)
+	}
+
 	for _, typ := range cityTypes {
 		data, err := parseCityCSV("0.csv", typ)
 		if err != nil {
@@ -25,6 +31,12 @@ func main() {
 		if err = saveArrayTo(fn, data); err != nil {
 			log.Printf("儲存 %s 失敗: %v", fn, err)
 			os.Exit(11)
+		}
+
+		err = db.save(data, typ)
+		if err != nil {
+			log.Print("無法儲存進 sqlite:", err)
+			os.Exit(111)
 		}
 	}
 
@@ -40,6 +52,12 @@ func main() {
 			log.Printf("儲存 %s 失敗: %v", fn, err)
 			os.Exit(11)
 		}
+
+		err = db.save(data, typ)
+		if err != nil {
+			log.Print("無法儲存進 sqlite:", err)
+			os.Exit(111)
+		}
 	}
 
 	for _, typ := range villageTypes {
@@ -53,6 +71,12 @@ func main() {
 		if err = saveArrayTo(fn, data); err != nil {
 			log.Printf("儲存 %s 失敗: %v", fn, err)
 			os.Exit(11)
+		}
+
+		err = db.save(data, typ)
+		if err != nil {
+			log.Print("無法儲存進 sqlite:", err)
+			os.Exit(111)
 		}
 	}
 
