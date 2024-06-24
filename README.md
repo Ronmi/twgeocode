@@ -2,14 +2,15 @@
 
 # 提供的格式及版本
 
-此專案目前僅提供 JSON array 格式的 Taiwan Geocode 103 代碼對照表，依內容共分四種
+所有檔案都是從 [民生示警平台](https://alerts.ncdr.nat.gov.tw/CAPfiledownload.aspx) 提供的行政區代碼表轉換而來，原檔案的更新日期為 2023.09.06
 
-- city: 相當於原檔案中的縣市分頁
-- district: 相當於原檔案中的鄉鎮分頁
-- village: 相當於原檔案中的村里分頁
-- all: 以上三個檔案合在一起
+### JSON array
 
-四個 JSON 檔案都是從 [民生示警平台](https://alerts.ncdr.nat.gov.tw/CAPfiledownload.aspx) 提供的行政區代碼表轉換而來，原檔案的更新日期為 2023.09.06
+所有原檔案中支援的格式都有提供
+
+- city-xxx: 相當於原檔案中的縣市分頁
+- district-xxx: 相當於原檔案中的鄉鎮分頁
+- village-xxx: 相當於原檔案中的村里分頁
 
 # 檔案是如何產生的
 
